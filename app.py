@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 
 
-
 @app.route("/")
 def test():
     return build_transfer_viz()
