@@ -53,7 +53,7 @@ def build_viz(maneuver: dict = None) -> str:
 
         # Swap the annotations if the maneuver is ascending
         if maneuver["initial_radius"] > maneuver["target_radius"]:
-            burn_annots = burn_annots.reverse()
+            burn_annots.reverse()
 
         # Lower orbit annotation
         ax.annotate(
