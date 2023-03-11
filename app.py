@@ -1,11 +1,15 @@
-from flask import Flask
+from flask import Flask, request, render_template
 
-from visualization import build_transfer_viz
+from visualization import build_viz
 
 app = Flask(__name__)
 
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def test():
-    return build_transfer_viz()
+    if request.method == 'POST':
+        return '<p>post received</p>'
+    
+    return render_template('index.html', visualization=build_viz())
+

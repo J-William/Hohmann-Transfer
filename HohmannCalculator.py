@@ -16,9 +16,9 @@ class HohmannCalculator:
         )
 
 
-    def post_burn_target_velocities(self, initial_radius: float, target_radius: float) -> tuple[float, float]:
+    def transfer_orbit_velocities(self, initial_radius: float, target_radius: float) -> tuple[float, float]:
         """
-            Calculate the post-burn velocities required to achieve a transfer.
+            Calculate the transfer orbit velocities required.
         """
         # Length of the Semi-major axis of the transfer orbit elliptical
         transferOrbitAxis = initial_radius + target_radius
@@ -36,16 +36,16 @@ class HohmannCalculator:
         initial_velocity = self.orbital_velocity(initial_radius)
         final_velocity = self.orbital_velocity(target_radius)
         # Post burn target velocities
-        burn1_target, burn2_target = self.post_burn_target_velocities(initial_radius, target_radius)
+        burn1_target, burn2_approach = self.transfer_orbit_velocities(initial_radius, target_radius)
         # Delta V 
         burn1_deltav = abs(initial_velocity - burn1_target)
-        burn2_deltav = abs(final_velocity - burn2_target)
+        burn2_deltav = abs(final_velocity - burn2_approach)
 
         return {
             "inital_velocity": initial_velocity,
             "burn1_target_velocity": burn1_target,
             "burn1_deltav": burn1_deltav,
-            "burn2_target_velocity": burn2_target,
+            "burn2_approach_velocity": burn2_approach,
             "burn2_deltav": burn2_deltav,
             "final_velocity": final_velocity
         }
