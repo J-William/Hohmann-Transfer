@@ -42,6 +42,8 @@ class HohmannCalculator:
         burn2_deltav = abs(final_velocity - burn2_approach)
 
         return {
+            "initial_radius": initial_radius,
+            "target_radius": target_radius,
             "inital_velocity": initial_velocity,
             "burn1_target_velocity": burn1_target,
             "burn1_deltav": burn1_deltav,
