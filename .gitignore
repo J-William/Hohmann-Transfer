@@ -130,3 +130,5 @@ dmypy.json
 
 # Prototypes
 proto-*.py
+
+test.py
