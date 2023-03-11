@@ -18,17 +18,20 @@
                 <div class="p-5">
                 <form method="post">
                     <label for="orbital-body-mass">Mass of Orbital Body</label><br>
-                    <input type="text" id="orbital-body-mass" name="orbital-body-mass" value="5.97219e24"><br><br>
+                    <input type="text" id="orbital-body-mass" name="orbital-body-mass" value="5.97219e24"> kg
+                    <br><br>
                     <label for="initial-orbit">Initial Orbit</label><br>
-                    <input type="text" id="initial-orbit" name="initial-orbit"><br><br>
+                    <input type="text" id="initial-orbit" name="initial-orbit"> m
+                    <br><br>
                     <label for="target-orbit">Target Orbit</label><br>
-                    <input type="text" id="target-orbit" name="target-orbit"><br><br>
+                    <input type="text" id="target-orbit" name="target-orbit"> m
+                    <br><br>
                     <input type="submit" value="Calculate">
                 </form>
                 {% if maneuver %}
                     <br><br>
-                    <p>Burn 1 DeltaV: {{ maneuver['burn1_deltav'] }}</p>
-                    <p>Burn 2 DeltaV: {{ maneuver['burn2_deltav'] }}</p>
+                    <p>Burn 1 DeltaV: ~{{ maneuver['burn1_deltav'] }} m/s</p>
+                    <p>Burn 2 DeltaV: ~{{ maneuver['burn2_deltav'] }} m/s</p>
                 {% endif %}
                 </div>
             </div>

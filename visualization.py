@@ -10,7 +10,7 @@ FIG_SCALE = {"xMin": 0, "xMax": 100, "yMin": 0, "yMax": 100}
 
 def burn_annotation(initial: float, target: float, delta: float) -> str:
     """Return formatted annotation text"""
-    return f"Initial Velocity: {initial}\nTarget Velocity: {target}\nDeltaV: {delta}"
+    return f"Initial Velocity: {initial} m/s\nTarget Velocity: {target} m/s\nDeltaV: {delta} m/s"
 
 
 def build_viz(maneuver: dict = None) -> str:
@@ -19,6 +19,12 @@ def build_viz(maneuver: dict = None) -> str:
     ax = fig.subplots()
     ax.set_xlim(FIG_SCALE["xMin"], FIG_SCALE["xMax"])
     ax.set_ylim(FIG_SCALE["yMin"], FIG_SCALE["yMax"])
+    # Hide labels
+    ax.xaxis.set_tick_params(labelbottom=False)
+    ax.yaxis.set_tick_params(labelleft=False)
+    # Hide tick marks
+    ax.set_xticks([])
+    ax.set_yticks([])
 
     low_radius = 10
     high_radius = 40

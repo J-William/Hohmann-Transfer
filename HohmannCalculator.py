@@ -66,6 +66,6 @@ class HohmannCalculator:
 
         # Rounding final numbers
         for key, val in maneuver.items():
-            maneuver[key] = round(val, 3)
+            maneuver[key] = round(val)
 
         return maneuver
